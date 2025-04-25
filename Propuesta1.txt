@@ -1,0 +1,172 @@
+# Xammp2Origen
+Configuracion de Xammp para trabajar con mysql y Workbench
+
+Config.inc.php inicial
+1---------------------------------------------------------
+
+# The MySQL server
+default-character-set=utf8mb4
+[mysqld]
+port=3306
+socket="C:/xampp/mysql/mysql.sock"
+basedir="C:/xampp/mysql"
+tmpdir="C:/xampp/tmp"
+datadir="C:/xampp/mysql/data"
+pid_file="mysql.pid"
+# enable-named-pipe
+key_buffer=16M
+max_allowed_packet=1M
+sort_buffer_size=512K
+net_buffer_length=8K
+read_buffer_size=256K
+read_rnd_buffer_size=512K
+myisam_sort_buffer_size=8M
+log_error="mysql_error.log"
+
+Por defecto del Mysql Workbench
+
+2---------------------------------------------------------
+
+Editar config.inc.php
+
+<?php
+
+/* 
+ * This is needed for cookie based authentication to encrypt password in 
+ * cookie
+ */
+ 
+$cfg['blowfish_secret'] = 'algoaleatorioysupersecreto123456'; /* Una clave más segura */
+
+/*
+ * Servers configuration
+ */
+ 
+$i = 0;
+
+/* Servidor #1 - MySQL XAMPP (3307) */
+
+$i++;
+$cfg['Servers'][$i]['verbose'] = 'MySQL XAMPP (3307)';
+$cfg['Servers'][$i]['host'] = 'localhost';
+$cfg['Servers'][$i]['port'] = '3307'; 
+$cfg['Servers'][$i]['socket'] = '';
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
+$cfg['Servers'][$i]['auth_type'] = 'cookie'; // Usamos cookie para que pida usuario/contraseña  
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = '';
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+
+/*
+// Si ninguna de las soluciones anteriores funciona, intenta esto (poco recomendable en producción)
+$cfg['Servers'][$i]['auth_type'] = 'config'; // Cambiar autenticación a config para el servidor problemático
+*/
+
+/* User for advanced features - solo para el segundo servidor si lo necesitas */
+$cfg['Servers'][$i]['controluser'] = 'pma';
+$cfg['Servers'][$i]['controlpass'] = '';
+*/
+
+// Características avanzadas para XAMPP - comentadas para simplificar
+/*
+$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
+$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+$cfg['Servers'][$i]['relation'] = 'pma__relation';
+$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+$cfg['Servers'][$i]['history'] = 'pma__history';
+$cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
+$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+$cfg['Servers'][$i]['recent'] = 'pma__recent';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['users'] = 'pma__users';
+$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
+$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
+$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+*/
+
+/* Servidor #2 - MySQL Workbench (3306) */
+
+$i++;
+$cfg['Servers'][$i]['verbose'] = 'MySQL Workbench (3306)';
+$cfg['Servers'][$i]['host'] = '127.0.0.1';
+$cfg['Servers'][$i]['port'] = '3306';
+$cfg['Servers'][$i]['socket'] = '';
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+$cfg['Servers'][$i]['extension'] = 'mysqli';
+$cfg['Servers'][$i]['auth_type'] = 'cookie'; // Usamos cookie para que pida usuario/contraseña
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = 'Aroman1984';
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+
+/*
+// Si ninguna de las soluciones anteriores funciona, intenta esto (poco recomendable en producción)
+$cfg['Servers'][$i]['auth_type'] = 'config'; // Cambiar autenticación a config para el servidor problemático
+*/
+
+/* User for advanced features - solo para el segundo servidor si lo necesitas */
+$cfg['Servers'][$i]['controluser'] = 'pma';
+$cfg['Servers'][$i]['controlpass'] = '';
+*/
+
+
+// Características avanzadas para XAMPP - comentadas para simplificar
+/*
+$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
+$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+$cfg['Servers'][$i]['relation'] = 'pma__relation';
+$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+$cfg['Servers'][$i]['history'] = 'pma__history';
+$cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
+$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+$cfg['Servers'][$i]['recent'] = 'pma__recent';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['users'] = 'pma__users';
+$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
+$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
+$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+*/
+
+// Configuración general adicional
+
+$cfg['Lang'] = '';
+$cfg['ForceSSL'] = false; // Esto es esencial para evitar el error de cookie de sesión
+$cfg['PmaAbsoluteUri'] = ''; // Dejar vacío para autodetección
+
+/**
+ * Configuración para resolver problemas de cookies
+ */
+
+/*
+$cfg['PmaAbsoluteUri'] = ''; // Deja vacío para autodetección
+$cfg['TempDir'] = 'C:/xampp/tmp'; // Ajusta esta ruta a tu directorio temporal de XAMPP
+$cfg['CookieSameSite'] = 'Lax'; // Uso más permisivo de cookies
+$cfg['ForceSSL'] = false; // Desactivar forzado de SSL
+$cfg['CookieSecure'] = false; // No requerir HTTPS para cookies
+$cfg['MaxRows'] = 50;          // Número de filas mostradas al navegar por el resultado
+$cfg['SendErrorReports'] = 'never'; // No enviar informes de error
+$cfg['ShowPhpInfo'] = false;   // Ocultar información de PHP
+*/
+
+?>
+
+// Configuración my.ini para cambiar el puerto de Xammp por defecto
+
+Necesitamos editarlo en 
+port=3307
