@@ -10,6 +10,7 @@ Cuando tienes instalados tanto XAMPP como MySQL Workbench en el mismo sistema, s
 
 Primero, verifica que ambos servidores están activos y escuchando en sus respectivos puertos:
 
+
 ```bash
 netstat -ano | findstr 3306
 netstat -ano | findstr 3307
