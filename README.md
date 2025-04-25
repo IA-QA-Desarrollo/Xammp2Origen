@@ -2,6 +2,8 @@
 
 Este repositorio explica cómo configurar phpMyAdmin para trabajar simultáneamente con dos instalaciones de MySQL: la incluida en XAMPP (configurada en el puerto 3307) y MySQL Workbench (puerto estándar 3306).
 
+##Propuesta1.txt PLanteada verificar
+
 ## Problema
 
 Cuando tienes instalados tanto XAMPP como MySQL Workbench en el mismo sistema, suelen producirse conflictos porque ambos intentan usar el puerto 3306 por defecto. La solución es modificar el puerto de uno de ellos (en este caso, XAMPP a 3307) y configurar phpMyAdmin para que pueda conectarse a ambos servidores.
